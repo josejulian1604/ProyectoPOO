@@ -1,20 +1,21 @@
-public class Base {
+public class Base extends Mapeable{
     
     private int recursos;
-    private int xPos;
-    private int yPos;
 
     public Base(int xPos, int yPos) {
+        position[0][0] = xPos;
+        position[0][1] = yPos;
         this.xPos = xPos;
         this.yPos = yPos;
-    }
-
-    public int getRecursos() {
-        return this.recursos;
+        fillPositions();
     }
 
     public void recursoAgregado() {
         this.recursos++;
+    }
+
+    public int getRecursos() {
+        return this.recursos;
     }
 
 }
