@@ -83,21 +83,21 @@ public class Defensores extends Agente{
             }
             //Verify Diagonal threat.
             else if((xPos - amenazas.get(i).getPositions()[0][0] == -1) & (yPos - amenazas.get(i).getPositions()[0][1] == -1)) {
-                System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
+                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 yPos++;
-                System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
+                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 return true;
             }
             else if((xPos - amenazas.get(i).getPositions()[1][0] == 1) & (yPos - amenazas.get(i).getPositions()[1][1] == -1)) {
-                System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
+                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 yPos++;
-                System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
+                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 return true;
             }
             else if((xPos - amenazas.get(i).getPositions()[2][0] == -1) & (yPos - amenazas.get(i).getPositions()[2][1] == 1)) {
-                System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
+                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 yPos--;
-                System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
+                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 return true;
             }
             else if((xPos - amenazas.get(i).getPositions()[3][0] == 1) & (yPos - amenazas.get(i).getPositions()[3][1] == 1)) {

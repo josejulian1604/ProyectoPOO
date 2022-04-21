@@ -322,9 +322,17 @@ public class Mapa extends JFrame implements ActionListener{
       }
    }
 
+   void setResourceNull(Recursos recurso) {
+      for(int i = 0; i < agentes.size(); i++) {
+         if(agentes.get(i).recurso == recurso)
+            agentes.get(i).recurso = null;
+      }
+   }
+
    public void deleteObjects() {
       for(int i = 0; i < OBJECTS; i++) {
          if(recursos.get(i).getCantidad() <= 0) {
+            setResourceNull(recursos.get(i));
             recursos.remove(i);
             gameArea.remove(botonesRecurso.remove(i));
             spawnButton(true);

@@ -10,11 +10,11 @@ public class Amenaza extends Mapeable{
         fillPositions();
     }
 
-    void reducirVida() {
+    public void reducirVida() {
         vida--;
     }
 
-    int getVida() {
+    public int getVida() {
         return vida;
     }
 }

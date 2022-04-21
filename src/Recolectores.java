@@ -84,7 +84,7 @@ public class Recolectores extends Agente{
             //Diagonal verification 1 campo
             else if((xPos - amenazas.get(i).getPositions()[0][0] == -1) & (yPos - amenazas.get(i).getPositions()[0][1] == -1)) {
                 if(yPos - 1 > 39 || yPos - 1 < 0){
-                    System.out.println("Me voy a salir");
+                    //System.out.println("Me voy a salir");
                     return true;
                 }
                 else
@@ -94,7 +94,7 @@ public class Recolectores extends Agente{
             }
             else if((xPos - amenazas.get(i).getPositions()[1][0] == 1) & (yPos - amenazas.get(i).getPositions()[1][1] == -1)) {
                 if(yPos - 1 > 39 || yPos - 1 < 0){
-                    System.out.println("Me voy a salir");
+                    //System.out.println("Me voy a salir");
                     return true;
                 }
                 else
@@ -104,7 +104,7 @@ public class Recolectores extends Agente{
             }
             else if((xPos - amenazas.get(i).getPositions()[2][0] == -1) & (yPos - amenazas.get(i).getPositions()[2][1] == 1)) {
                 if(yPos + 1 > 39 || yPos + 1 < 0){
-                    System.out.println("Me voy a salir");
+                    //System.out.println("Me voy a salir");
                     return true;
                 }
                 else
@@ -114,7 +114,7 @@ public class Recolectores extends Agente{
             }
             else if((xPos - amenazas.get(i).getPositions()[3][0] == 1) & (yPos - amenazas.get(i).getPositions()[3][1] == 1)) {
                 if(yPos + 1 > 39 || yPos + 1 < 0){
-                    System.out.println("Me voy a salir");
+                    //System.out.println("Me voy a salir");
                     return true;
                 }
                 else
