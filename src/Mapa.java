@@ -1,5 +1,4 @@
 import java.awt.Color;
-import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JButton;
@@ -21,23 +20,21 @@ public class Mapa extends JFrame implements ActionListener{
    public ArrayList<Obstaculo> obstaculos = new ArrayList<Obstaculo>();
    public Base base;
 
-   final int CASILLAS = 40; //40
-   final int WIDTH = 1000; // 1000
+   final int CASILLAS = 40; 
+   final int WIDTH = 1000; 
    final int HEIGHT = 840;
-   final int OBJECTS = 7;
+   final int OBJECTS = 7; // Cantidad de Amenazas, Recursos y Obstaculos
 
-   public int X;
-   public int Y;
+   public int X; // Almacena el random generado en las funciones para su posicion en x
+   public int Y; // Almacena el random generado en las funciones para su posicion en y
 
-   JPanel gameArea;
-   JButton boton;
-   JButton move;
+   JPanel gameArea; // Area donde se mueven y se crean los objetos
+   JButton move; // Boton que refresca el gameArea
 
 
    public Mapa() {
 
       this.setLayout(null);
-      boton = new JButton();
       move = new JButton();
       move.addActionListener(this);
       gameArea = new JPanel();
@@ -48,7 +45,6 @@ public class Mapa extends JFrame implements ActionListener{
        
       gameArea.setLayout(null);
       gameArea.setSize(WIDTH, HEIGHT);
-      gameArea.add(boton);
       gameArea.setBackground(Color.darkGray);
 
       
@@ -169,6 +165,8 @@ public class Mapa extends JFrame implements ActionListener{
    }
 
    // VERIFICATION METHODS ###################################################################################
+   // positionAgenteTaken verifica las posiciones que ya han sido tomadas por otros agentes y la base
+   // y genera 2 randoms para la posicion del nuevo agente
    public void positionAgenteTaken() {
       int x = new Random().nextInt(CASILLAS);
       int y = new Random().nextInt(CASILLAS);
@@ -190,6 +188,8 @@ public class Mapa extends JFrame implements ActionListener{
       this.Y = y;
    }
 
+   // positionObstaculoTaken verifica las posiciones tomadas por la base, agentes y otros obstaculos
+   // y genera 2 randoms para la posicion de un nuevo obstaculo
    public void positionObstaculoTaken() {
       int[][] array = new int[4][2];
       this.X = new Random().nextInt(CASILLAS - 1);
@@ -234,6 +234,8 @@ public class Mapa extends JFrame implements ActionListener{
       }
    }
 
+   // positionRecursoTaken verifica las posiciones tomadas por la base, agentes, obstaculos y otros recursos
+   // y genera 2 randoms para la posicion de un nuevo recurso
    public void positionRecursoTaken() {
       positionObstaculoTaken();
       int[][] array = new int[4][2];
@@ -259,6 +261,8 @@ public class Mapa extends JFrame implements ActionListener{
       }
    }
 
+   // positionAmenazaTaken verifica las posiciones tomadas por la base, agentes, obstaculos, recursos y  otras amenazas
+   // y genera 2 randoms para la posicion de una nueva amenaza
    public void positionAmenazaTaken() {
       positionRecursoTaken();
       int[][] array = new int[4][2];
@@ -284,7 +288,6 @@ public class Mapa extends JFrame implements ActionListener{
    }
 
    //MOVE METHODS#######################################################################
-
    public void moveAgents() {
       int agenteX;
       int agenteY;
@@ -321,6 +324,8 @@ public class Mapa extends JFrame implements ActionListener{
       }
    }
 
+   // cuando un recurso desaparece, asegura que el atributo recurso de los agentes que encontraron
+   // este recurso sea nulo
    void setResourceNull(Recursos recurso) {
       for(int i = 0; i < agentes.size(); i++) {
          if(agentes.get(i).recurso == recurso)
@@ -345,6 +350,8 @@ public class Mapa extends JFrame implements ActionListener{
       }
    }
 
+   // cada vez que un Objeto desaparece, se crea otro en una posicion random
+   // utiliza el metodo positionAmenazaTaken para verificar las posiciones tomadas
    public void spawnButton(boolean recurso) {
       int xSize = gameArea.getWidth() / CASILLAS;
       int ySize = gameArea.getHeight() / CASILLAS;

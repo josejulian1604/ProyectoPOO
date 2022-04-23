@@ -3,13 +3,14 @@ import java.util.Random;
 
 public abstract class Agente {
 
-    protected int xPos;
-    protected int yPos;
-    protected boolean currentResource; 
-    protected String name;
-    protected Recursos recurso;
-    protected Amenaza amenaza;
-    protected boolean lastMoveInX;
+    protected int xPos; //Posición x del agente
+    protected int yPos; //Posición y del agente
+    protected boolean currentResource; //Boleano si lleva o no un recurso
+    protected String name; //Nombre del agente
+    protected Recursos recurso; //Guarda la posición del recurso cerca
+    protected Amenaza amenaza; //Guarda la posición de la amenza
+    protected boolean lastMoveInX; //Verifica el último movimiento del agente
+
 
     public abstract boolean threatDetected(ArrayList<Amenaza> amenazas);
     
@@ -273,7 +274,7 @@ public abstract class Agente {
     }
 
     public boolean goToResource(ArrayList<Agente> agentes) {
-        verifyCloseAgents(agentes);
+        verifyCloseAgents(agentes); 
         if(recurso == null) 
             return false;
         
@@ -347,6 +348,7 @@ public abstract class Agente {
         }
     }
 
+    // ayuda a que el agente se mueva en zig-zag
     public void verifyLastMove() {
         if(xPos == 0)
             lastMoveInX = true;

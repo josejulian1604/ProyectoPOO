@@ -1,5 +1,5 @@
 public class Amenaza extends Mapeable{
-    private int vida;
+    private int vida; //Cantidad de vida en la amenaza
 
     public Amenaza(int vida, int x, int y) {
         this.vida = vida;

@@ -1,5 +1,5 @@
 public class Recursos extends Mapeable{
-    private int cantidad;
+    private int cantidad; //Cantidad de recurso en el objeto
 
     public Recursos(int cantidad, int x, int y) {
         this.cantidad = cantidad;

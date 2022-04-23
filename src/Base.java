@@ -1,6 +1,6 @@
 public class Base extends Mapeable{
     
-    private int recursos;
+    private int recursos; //Cantidad de recursos recibidos
 
     public Base(int xPos, int yPos) {
         position[0][0] = xPos;
