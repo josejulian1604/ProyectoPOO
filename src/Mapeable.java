@@ -1,4 +1,4 @@
-public class Mapeable {
+public abstract class Mapeable {
     protected int[][] position = new int[4][2];
     protected int xPos;
     protected int yPos;

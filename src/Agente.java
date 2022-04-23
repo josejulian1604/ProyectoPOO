@@ -5,7 +5,7 @@ public abstract class Agente {
 
     protected int xPos;
     protected int yPos;
-    protected boolean currentResource;
+    protected boolean currentResource; 
     protected String name;
     protected Recursos recurso;
     protected Amenaza amenaza;
@@ -131,48 +131,72 @@ public abstract class Agente {
 
             //VERIFY IF AGENT IS 1 SPACE AWAY FROM THREAT
             if((xPos - obstaculos.get(i).getPositions()[0][0] == -1 || xPos - obstaculos.get(i).getPositions()[2][0] == -1) & (yPos == obstaculos.get(i).getYPos() || yPos == obstaculos.get(i).getYPos() + 1)) {
-                xPos--;
+                if (xPos - 1 > 39 || xPos - 1 < 0)
+                    return true;
+                else 
+                    xPos--;
                 //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAX obstaculo");
                 return true;
             }
             else if((xPos - obstaculos.get(i).getPositions()[1][0] == 1 || xPos - obstaculos.get(i).getPositions()[3][0] == 1) & (yPos == obstaculos.get(i).getYPos() || yPos == obstaculos.get(i).getYPos() + 1)) {
-                xPos++;
+                if(xPos + 1 > 39 || xPos + 1 < 0)
+                    return true;
+                else
+                    xPos++;
                 //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAX obstaculo");
                 return true;
             }
             else if((yPos - obstaculos.get(i).getPositions()[0][1] == -1 || yPos - obstaculos.get(i).getPositions()[1][1] == -1) & (xPos == obstaculos.get(i).getXPos() || xPos == obstaculos.get(i).getXPos() + 1)) {
-                yPos--;
+                if(yPos - 1 > 39 || yPos - 1 < 0)
+                    return true;
+                else
+                    yPos--;
                 //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAY obstaculo");
                 return true;
             }
             else if((yPos - obstaculos.get(i).getPositions()[2][1] == 1 || yPos - obstaculos.get(i).getPositions()[3][1] == 1) & (xPos == obstaculos.get(i).getXPos() || xPos == obstaculos.get(i).getXPos() + 1)) {
-                yPos++;
+                if(yPos + 1 > 39 || yPos + 1 < 0)
+                    return true;
+                else
+                    yPos++;
                 //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAY obstaculo");
                 return true;
             }
 
             //VERIFY X POSITIONS
             else if((xPos - obstaculos.get(i).getPositions()[0][0] == -2 || xPos - obstaculos.get(i).getPositions()[2][0] == -2) & (yPos == obstaculos.get(i).getYPos() || yPos == obstaculos.get(i).getYPos() + 1)) {
-                xPos--;
-                //System.out.println("AGENTE: " + name + " ESTOY A 2 CASILLAS (derecha) obstaculo");
+                if (xPos - 1 > 39 || xPos - 1 < 0)
+                    return true;
+                else 
+                    xPos--;
+                //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAX obstaculo");
                 return true;
             }
             else if((xPos - obstaculos.get(i).getPositions()[1][0] == 2 || xPos - obstaculos.get(i).getPositions()[3][0] == 2) & (yPos == obstaculos.get(i).getYPos() || yPos == obstaculos.get(i).getYPos() + 1)) {
-                xPos++;
-                //System.out.println("AGENTE: " + name + " ESTOY A 2 CASILLAS (izquierda) obstaculo");
+                if(xPos + 1 > 39 || xPos + 1 < 0)
+                    return true;
+                else
+                    xPos++;
+                //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAX obstaculo");
                 return true;
             }
 
             //VERIFY Y POSITIONS
             else if((yPos - obstaculos.get(i).getPositions()[0][1] == -2 || yPos - obstaculos.get(i).getPositions()[1][1] == -2) & (xPos == obstaculos.get(i).getXPos() || xPos == obstaculos.get(i).getXPos() + 1)) {
-                //System.out.println("AGENTE: " + name + " ESTOY A 2 CASILLAS (abajo) obstaculo");
-                yPos--;
+                if(yPos - 1 > 39 || yPos - 1 < 0)
+                    return true;
+                else
+                    yPos--;
+                //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAY obstaculo");
                 return true;
             }
             
             else if((yPos - obstaculos.get(i).getPositions()[2][1] == 2 || yPos - obstaculos.get(i).getPositions()[3][1] == 2) & (xPos == obstaculos.get(i).getXPos() || xPos == obstaculos.get(i).getXPos() + 1)) {
-                //System.out.println("AGENTE: " + name + " ESTOY A 2 CASILLAS (arriba) obstaculo");
-                yPos++;
+                if(yPos + 1 > 39 || yPos + 1 < 0)
+                    return true;
+                else
+                    yPos++;
+                //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAY obstaculo");
                 return true;
             }
             //Diagonal verification 1 campo
