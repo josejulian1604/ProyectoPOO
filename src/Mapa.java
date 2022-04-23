@@ -57,7 +57,6 @@ public class Mapa extends JFrame implements ActionListener{
       spawnObstaculos();
       spawnRecursos(OBJECTS);
       spawnAmenaza(OBJECTS);
-      printArray();
 
       this.setTitle("Simulacion Enjambre");
       this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -121,7 +120,7 @@ public class Mapa extends JFrame implements ActionListener{
          JButton recursoBoton = new JButton();
          recursos.add(new Recursos(10, this.X, this.Y));
 
-         recursoBoton.setText("" + i);//"" + recursos.get(i).getCantidad());
+         recursoBoton.setText("" + recursos.get(i).getCantidad());
          recursoBoton.setBounds(recursos.get(i).getXPos() * xSize, recursos.get(i).getYPos() * ySize, xSize * 2, ySize * 2);
          recursoBoton.setBackground(Color.MAGENTA);
          
@@ -140,7 +139,7 @@ public class Mapa extends JFrame implements ActionListener{
          JButton amenazaBoton = new JButton();
          amenazas.add(new Amenaza(10, this.X, this.Y));
 
-         amenazaBoton.setText("A" + i);//amenazas.get(i).getVida());
+         amenazaBoton.setText("" + amenazas.get(i).getVida());
          amenazaBoton.setBounds(amenazas.get(i).getXPos() * xSize, amenazas.get(i).getYPos() * ySize, xSize * 2, ySize * 2);
          amenazaBoton.setBackground(Color.ORANGE);
          amenazaBoton.setVisible(true);
@@ -342,7 +341,6 @@ public class Mapa extends JFrame implements ActionListener{
             amenazas.remove(i);
             gameArea.remove(botonesAmenaza.remove(i));
             spawnButton(false);
-            printArray();
          }
       }
    }
@@ -387,37 +385,5 @@ public class Mapa extends JFrame implements ActionListener{
          botonesAmenaza.get(i).setText("" + amenazas.get(i).getVida());
       }
       botonBase.setText("" + base.getRecursos());
-   }
-
-   public void printArray() {
-      for(int i = 0; i < agentes.size(); i++) {
-         System.out.println(agentes.get(i).name + " X: " + agentes.get(i).xPos +
-         " Y: " + agentes.get(i).yPos);  
-      }
-      for(int i = 0; i < recursos.size(); i++) {
-         System.out.print("RE" + i + ": [ ");
-         for(int j = 0; j < recursos.get(i).getPositions().length; j++) {
-            System.out.print("[ " + recursos.get(i).getPositions()[j][0] + ", " + recursos.get(i).getPositions()[j][1] + " ], ");
-         }
-         System.out.print(" ]");
-         System.out.println("");
-      }
-      for(int i = 0; i < amenazas.size(); i++) {
-         System.out.print("A" + i + ": [ ");
-         for(int j = 0; j < amenazas.get(i).getPositions().length; j++) {
-            System.out.print("[ " + amenazas.get(i).getPositions()[j][0] + ", " + amenazas.get(i).getPositions()[j][1] + " ], ");
-         }
-         System.out.print(" ]");
-         System.out.println("");
-      }
-   }
-
-   public void printButtons() {
-      Component[] x = gameArea.getComponents();
-      for(int i = 0; i < x.length; i++) {
-         if(x[i] instanceof JButton) {
-            System.out.println(((JButton)x[i]).getText());
-         }
-      }
    }
 }

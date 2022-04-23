@@ -48,78 +48,62 @@ public abstract class Agente {
                 currentResource = true;
                 recursos.get(i).reducirCantidad();
                 recurso = recursos.get(i);
-                //System.out.println("Agente: " + name + " estoy a 1 casillaX");
                 return true;
             }
             else if((xPos - recursos.get(i).getPositions()[1][0] == 1 || xPos - recursos.get(i).getPositions()[3][0] == 1) & (yPos == recursos.get(i).getYPos() || yPos == recursos.get(i).getYPos() + 1)) {
                 currentResource = true;
                 recursos.get(i).reducirCantidad();
                 recurso = recursos.get(i);
-                //System.out.println("Agente: " + name + " estoy a 1 casillaX");
                 return true;
             }
             else if((yPos - recursos.get(i).getPositions()[0][1] == -1 || yPos - recursos.get(i).getPositions()[1][1] == -1) & (xPos == recursos.get(i).getXPos() || xPos == recursos.get(i).getXPos() + 1)) {
                 currentResource = true;
                 recursos.get(i).reducirCantidad();
                 recurso = recursos.get(i);
-                //System.out.println("Agente: " + name + " estoy a 1 casillaY");
                 return true;
             }
             else if((yPos - recursos.get(i).getPositions()[2][1] == 1 || yPos - recursos.get(i).getPositions()[3][1] == 1) & (xPos == recursos.get(i).getXPos() || xPos == recursos.get(i).getXPos() + 1)) {
                 currentResource = true;
                 recursos.get(i).reducirCantidad();
                 recurso = recursos.get(i);
-                //System.out.println("Agente: " + name + " estoy a 1 casillaY");
                 return true;
             }
 
             //VERIFY X POSITIONS
             else if((xPos - recursos.get(i).getPositions()[0][0] == -2 || xPos - recursos.get(i).getPositions()[2][0] == -2) & (yPos == recursos.get(i).getYPos() || yPos == recursos.get(i).getYPos() + 1)) {
                 xPos++;
-                //System.out.println("Agente: " + name + " estoy a 2 casillas (derecha)");
                 return true;
             }
             else if((xPos - recursos.get(i).getPositions()[1][0] == 2 || xPos - recursos.get(i).getPositions()[3][0] == 2) & (yPos == recursos.get(i).getYPos() || yPos == recursos.get(i).getYPos() + 1)) {
                 xPos--;
-                //System.out.println("Agente: " + name + " estoy a 2 casillas (izquierda)");
                 return true;
             }
 
             //VERIFY Y POSITIONS
             else if((yPos - recursos.get(i).getPositions()[0][1] == -2 || yPos - recursos.get(i).getPositions()[1][1] == -2) & (xPos == recursos.get(i).getXPos() || xPos == recursos.get(i).getXPos() + 1)) {
-                //System.out.println("Agente: " + name + " estoy a 2 casillas (abajo)");
                 yPos++;
                 return true;
             }
             
             else if((yPos - recursos.get(i).getPositions()[2][1] == 2 || yPos - recursos.get(i).getPositions()[3][1] == 2) & (xPos == recursos.get(i).getXPos() || xPos == recursos.get(i).getXPos() + 1)) {
-                //System.out.println("Agente: " + name + " estoy a 2 casillas (arriba)");
                 yPos--;
                 return true;
             }
             //Diagonal Resource
             else if((xPos - recursos.get(i).getPositions()[0][0] == -1) & (yPos - recursos.get(i).getPositions()[0][1] == -1)) {
-                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 yPos++;
-                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 return true;
             }
             else if((xPos - recursos.get(i).getPositions()[1][0] == 1) & (yPos - recursos.get(i).getPositions()[1][1] == -1)) {
-                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 yPos++;
-                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 return true;
             }
             else if((xPos - recursos.get(i).getPositions()[2][0] == -1) & (yPos - recursos.get(i).getPositions()[2][1] == 1)) {
-                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 yPos--;
-                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 return true;
             }
             else if((xPos - recursos.get(i).getPositions()[3][0] == 1) & (yPos - recursos.get(i).getPositions()[3][1] == 1)) {
-                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 yPos--;
-                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 return true;
             }
         }
@@ -135,7 +119,6 @@ public abstract class Agente {
                     return true;
                 else 
                     xPos--;
-                //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAX obstaculo");
                 return true;
             }
             else if((xPos - obstaculos.get(i).getPositions()[1][0] == 1 || xPos - obstaculos.get(i).getPositions()[3][0] == 1) & (yPos == obstaculos.get(i).getYPos() || yPos == obstaculos.get(i).getYPos() + 1)) {
@@ -143,7 +126,6 @@ public abstract class Agente {
                     return true;
                 else
                     xPos++;
-                //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAX obstaculo");
                 return true;
             }
             else if((yPos - obstaculos.get(i).getPositions()[0][1] == -1 || yPos - obstaculos.get(i).getPositions()[1][1] == -1) & (xPos == obstaculos.get(i).getXPos() || xPos == obstaculos.get(i).getXPos() + 1)) {
@@ -151,7 +133,6 @@ public abstract class Agente {
                     return true;
                 else
                     yPos--;
-                //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAY obstaculo");
                 return true;
             }
             else if((yPos - obstaculos.get(i).getPositions()[2][1] == 1 || yPos - obstaculos.get(i).getPositions()[3][1] == 1) & (xPos == obstaculos.get(i).getXPos() || xPos == obstaculos.get(i).getXPos() + 1)) {
@@ -159,7 +140,6 @@ public abstract class Agente {
                     return true;
                 else
                     yPos++;
-                //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAY obstaculo");
                 return true;
             }
 
@@ -169,7 +149,6 @@ public abstract class Agente {
                     return true;
                 else 
                     xPos--;
-                //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAX obstaculo");
                 return true;
             }
             else if((xPos - obstaculos.get(i).getPositions()[1][0] == 2 || xPos - obstaculos.get(i).getPositions()[3][0] == 2) & (yPos == obstaculos.get(i).getYPos() || yPos == obstaculos.get(i).getYPos() + 1)) {
@@ -177,7 +156,6 @@ public abstract class Agente {
                     return true;
                 else
                     xPos++;
-                //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAX obstaculo");
                 return true;
             }
 
@@ -187,7 +165,6 @@ public abstract class Agente {
                     return true;
                 else
                     yPos--;
-                //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAY obstaculo");
                 return true;
             }
             
@@ -196,13 +173,11 @@ public abstract class Agente {
                     return true;
                 else
                     yPos++;
-                //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAY obstaculo");
                 return true;
             }
             //Diagonal verification 1 campo
             else if((xPos - obstaculos.get(i).getPositions()[0][0] == -1) & (yPos - obstaculos.get(i).getPositions()[0][1] == -1)) {
                 if(yPos - 1 > 39 || yPos - 1 < 0){
-                    //System.out.println("Me voy a salir");
                     return true;
                 }
                 else
@@ -212,7 +187,6 @@ public abstract class Agente {
             }
             else if((xPos - obstaculos.get(i).getPositions()[1][0] == 1) & (yPos - obstaculos.get(i).getPositions()[1][1] == -1)) {
                 if(yPos - 1 > 39 || yPos - 1 < 0){
-                    //System.out.println("Me voy a salir");
                     return true;
                 }
                 else
@@ -222,7 +196,6 @@ public abstract class Agente {
             }
             else if((xPos - obstaculos.get(i).getPositions()[2][0] == -1) & (yPos - obstaculos.get(i).getPositions()[2][1] == 1)) {
                 if(yPos + 1 > 39 || yPos + 1 < 0){
-                    //System.out.println("Me voy a salir");
                     return true;
                 }
                 else
@@ -232,7 +205,6 @@ public abstract class Agente {
             }
             else if((xPos - obstaculos.get(i).getPositions()[3][0] == 1) & (yPos - obstaculos.get(i).getPositions()[3][1] == 1)) {
                 if(yPos + 1 > 39 || yPos + 1 < 0){
-                    //System.out.println("Me voy a salir");
                     return true;
                 }
                 else
@@ -302,40 +274,27 @@ public abstract class Agente {
 
     public boolean goToResource(ArrayList<Agente> agentes) {
         verifyCloseAgents(agentes);
-        if(recurso != null)
-            System.out.println(name +" Recurso en memoria");
-
-        if(recurso == null) {
-            System.out.println(name + " Recurso nulo");
+        if(recurso == null) 
             return false;
-        }
         
         if(xPos < recurso.xPos & lastMoveInX == false) {
             xPos++;
             lastMoveInX = true;
-            //verifyLastMove();
-            //System.out.println(name + " recurso a la derecha " + lastMoveInX);
             return true;
         }
         if(xPos > recurso.xPos & lastMoveInX == false) {
             xPos--;
             lastMoveInX = true;
-            //verifyLastMove();
-            //System.out.println(name + " recurso a la izquierda " + lastMoveInX);
             return true;
         }
         if(yPos < recurso.yPos & lastMoveInX == true) {
             yPos++;
             lastMoveInX = false;
-            //verifyLastMove();
-            //System.out.println(name + " recurso a la abajo " + lastMoveInX);
             return true;
         }
         if(yPos > recurso.yPos & lastMoveInX == true) {
             yPos--;
             lastMoveInX = false;
-            //verifyLastMove();
-            //System.out.println(name + " recurso a la arriba " + lastMoveInX);
             return true;
         }
         return false;
@@ -345,7 +304,6 @@ public abstract class Agente {
         int[][] randomMove = {{-1, 1}, {-1, 1}};
         int rand1 = new Random().nextInt(2);
         int rand2 = new Random().nextInt(2);
-        //System.out.println("rand1: " + rand1 + " rand2: " + rand2);
         if(rand1 == 0) {
             if(xPos + randomMove[rand1][rand2] > 39 || xPos + randomMove[rand1][rand2] < 0) {
                 moveRandomly();

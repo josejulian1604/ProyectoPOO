@@ -35,69 +35,55 @@ public class Defensores extends Agente{
             if((xPos - amenazas.get(i).getPositions()[0][0] == -1 || xPos - amenazas.get(i).getPositions()[2][0] == -1) & (yPos == amenazas.get(i).getYPos() || yPos == amenazas.get(i).getYPos() + 1)) {
                 amenazas.get(i).reducirVida();
                 amenaza = amenazas.get(i);
-                //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAX");
                 return true;
             }
             else if((xPos - amenazas.get(i).getPositions()[1][0] == 1 || xPos - amenazas.get(i).getPositions()[3][0] == 1) & (yPos == amenazas.get(i).getYPos() || yPos == amenazas.get(i).getYPos() + 1)) {
                 amenazas.get(i).reducirVida();
                 amenaza = amenazas.get(i);
-                //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAX");
                 return true;
             }
             else if((yPos - amenazas.get(i).getPositions()[0][1] == -1 || yPos - amenazas.get(i).getPositions()[1][1] == -1) & (xPos == amenazas.get(i).getXPos() || xPos == amenazas.get(i).getXPos() + 1)) {
                 amenazas.get(i).reducirVida();
                 amenaza = amenazas.get(i);
-                //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAY");
                 return true;
             }
             else if((yPos - amenazas.get(i).getPositions()[2][1] == 1 || yPos - amenazas.get(i).getPositions()[3][1] == 1) & (xPos == amenazas.get(i).getXPos() || xPos == amenazas.get(i).getXPos() + 1)) {
                 amenazas.get(i).reducirVida();
                 amenaza = amenazas.get(i);
-                //System.out.println("AGENTE: " + name + " ESTOY A 1 CASILLAY");
                 return true;
             }
             //Agent is 2 positions away from threat.
             //VERIFY X POSITIONS
             else if((xPos - amenazas.get(i).getPositions()[0][0] == -2 || xPos - amenazas.get(i).getPositions()[2][0] == -2) & (yPos == amenazas.get(i).getYPos() || yPos == amenazas.get(i).getYPos() + 1)) {
                 xPos++;
-                //System.out.println("AGENTE: " + name + " ESTOY A 2 CASILLAS (derecha)");
                 return true;
             }
             else if((xPos - amenazas.get(i).getPositions()[1][0] == 2 || xPos - amenazas.get(i).getPositions()[3][0] == 2) & (yPos == amenazas.get(i).getYPos() || yPos == amenazas.get(i).getYPos() + 1)) {
                 xPos--;
-                //System.out.println("AGENTE: " + name + " ESTOY A 2 CASILLAS (izquierda)");
                 return true;
             }
             
             //VERIFY Y POSITIONS
             else if((yPos - amenazas.get(i).getPositions()[0][1] == -2 || yPos - amenazas.get(i).getPositions()[1][1] == -2) & (xPos == amenazas.get(i).getXPos() || xPos == amenazas.get(i).getXPos() + 1)) {
-                //System.out.println("AGENTE: " + name + " ESTOY A 2 CASILLAS (abajo)");
                 yPos++;
                 return true;
             }
             
             else if((yPos - amenazas.get(i).getPositions()[2][1] == 2 || yPos - amenazas.get(i).getPositions()[3][1] == 2) & (xPos == amenazas.get(i).getXPos() || xPos == amenazas.get(i).getXPos() + 1)) {
-                //System.out.println("AGENTE: " + name + " ESTOY A 2 CASILLAS (arriba)");
                 yPos--;
                 return true;
             }
             //Verify Diagonal threat.
             else if((xPos - amenazas.get(i).getPositions()[0][0] == -1) & (yPos - amenazas.get(i).getPositions()[0][1] == -1)) {
-                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 yPos++;
-                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 return true;
             }
             else if((xPos - amenazas.get(i).getPositions()[1][0] == 1) & (yPos - amenazas.get(i).getPositions()[1][1] == -1)) {
-                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 yPos++;
-                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 return true;
             }
             else if((xPos - amenazas.get(i).getPositions()[2][0] == -1) & (yPos - amenazas.get(i).getPositions()[2][1] == 1)) {
-                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 yPos--;
-                //System.out.println("AgenteDiagonal: "+name+" " + xPos +" " +yPos);
                 return true;
             }
             else if((xPos - amenazas.get(i).getPositions()[3][0] == 1) & (yPos - amenazas.get(i).getPositions()[3][1] == 1)) {
